@@ -2,9 +2,6 @@ name: TestEnvironment
 
 on:
   workflow_dispatch:
-    inputs:
-      name:
-        type: string
 
 jobs:
   job:
