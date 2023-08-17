@@ -9,6 +9,9 @@ jobs:
       - ubuntu-latest
     environment: 'Production'
     steps:
-      - name: Hello World
-        run: |
-          echo Hello World
+      - name: 'Check Membership'
+        uses: tspascoal/get-user-teams-membership@v2
+        with:
+          username: hakob
+          team: devops
+          GITHUB_TOKEN: ${{ secrets.MEMBERS_PAT }}
