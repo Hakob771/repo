@@ -1,0 +1,8 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job:
+    uses: Hakob771/test/.github/workflows/job.yml@main
