@@ -7,7 +7,6 @@ jobs:
   job:
     runs-on:
       - ubuntu-latest
-    environment: 'Production'
     steps:
       - name: 'Check Membership'
         uses: tspascoal/get-user-teams-membership@v2
