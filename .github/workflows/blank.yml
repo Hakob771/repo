@@ -8,4 +8,7 @@ jobs:
     runs-on:
       - ubuntu-latest
     environment: 'Production'
-    
+    steps:
+      - name: Hello World
+        run: |
+          echo Hello World
