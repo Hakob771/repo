@@ -2,15 +2,38 @@ name: TestEnvironment
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        type: string
 
 jobs:
   job:
     runs-on:
       - ubuntu-latest
     steps:
-      - name: 'Check Membership'
-        uses: tspascoal/get-user-teams-membership@v2
-        with:
-          username: hakob
-          team: devops
-          GITHUB_TOKEN: ${{ secrets.MEMBERS_PAT }}
+      - name: 'Main'
+        run: |
+          echo hello world
+
+  middle:
+    outputs:
+      mid: ${{ steps.middle.outputs.out }}
+      
+    runs-on:
+      - ubuntu-latest
+
+    steps:
+      - name: 'Middle job'
+        id: middle
+        run: |
+          echo "out=mid" >> $GITHUB_OUTPUT
+
+  job2:
+    needs: 
+      - ${{ jobs.middle.outputs.mid }}
+    runs-on:
+      - ubuntu-latest
+    steps:
+      - name: 'Dependency'
+        run: |
+          echo hello world2
