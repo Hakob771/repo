@@ -1,8 +1,11 @@
-name: CI
+name: TestEnvironment
 
 on:
   workflow_dispatch:
 
 jobs:
   job:
-    uses: Hakob771/test/.github/workflows/job.yml@main
+    runs-on:
+      - ubuntu-latest
+    environment: 'Production'
+    
