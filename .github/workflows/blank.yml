@@ -27,10 +27,11 @@ jobs:
 
   job2:
     needs: 
-      - ${{ jobs.middle.outputs.mid }}
+      - middle
+      - ${{ needs.middle.outputs.mid }}
     runs-on:
       - ubuntu-latest
     steps:
       - name: 'Dependency'
         run: |
-          echo hello world2
+          echo hello world2 
